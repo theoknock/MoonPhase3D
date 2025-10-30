@@ -22,6 +22,6 @@ struct MoonViewSized: View {
                 )
                 .padding(.horizontal, horizontalPadding)
         }
-        .frame(height: .infinity) // keep a square
+//        .frame(height: .infinity) // keep a square
     }
 }
