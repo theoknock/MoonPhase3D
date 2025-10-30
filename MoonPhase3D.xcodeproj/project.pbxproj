@@ -6,8 +6,15 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		B97F130C2EB4158100488D8B /* WeatherKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B97F130B2EB4158000488D8B /* WeatherKit.framework */; };
+		B97F130E2EB4159300488D8B /* RealityKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B97F130D2EB4159300488D8B /* RealityKit.framework */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		B97F12F92EB40A8700488D8B /* MoonPhase3D.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoonPhase3D.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B97F130B2EB4158000488D8B /* WeatherKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WeatherKit.framework; path = System/Library/Frameworks/WeatherKit.framework; sourceTree = SDKROOT; };
+		B97F130D2EB4159300488D8B /* RealityKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealityKit.framework; path = System/Library/Frameworks/RealityKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -23,6 +30,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B97F130E2EB4159300488D8B /* RealityKit.framework in Frameworks */,
+				B97F130C2EB4158100488D8B /* WeatherKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -33,6 +42,7 @@
 			isa = PBXGroup;
 			children = (
 				B97F12FB2EB40A8700488D8B /* MoonPhase3D */,
+				B97F130A2EB4158000488D8B /* Frameworks */,
 				B97F12FA2EB40A8700488D8B /* Products */,
 			);
 			sourceTree = "<group>";
@@ -43,6 +53,15 @@
 				B97F12F92EB40A8700488D8B /* MoonPhase3D.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		B97F130A2EB4158000488D8B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B97F130D2EB4159300488D8B /* RealityKit.framework */,
+				B97F130B2EB4158000488D8B /* WeatherKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -251,11 +270,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = MoonPhase3D/MoonPhase3D.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = N9987K9442;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Location (Always) Usage Description";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Location (When In Use) Usage Description";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -266,7 +288,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.blogspot.demonicactivity.bush.alan.james.MoonPhase3D.MoonPhase3D;
+				PRODUCT_BUNDLE_IDENTIFIER = com.blogspot.demonicactivity.MoonPhase3DApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
@@ -283,11 +305,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = MoonPhase3D/MoonPhase3D.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = N9987K9442;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Location (Always) Usage Description";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Location (When In Use) Usage Description";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -298,7 +323,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.blogspot.demonicactivity.bush.alan.james.MoonPhase3D.MoonPhase3D;
+				PRODUCT_BUNDLE_IDENTIFIER = com.blogspot.demonicactivity.MoonPhase3DApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;

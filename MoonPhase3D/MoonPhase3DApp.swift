@@ -5,6 +5,7 @@
 //  Created by Xcode Developer on 10/30/25.
 //
 
+import Foundation
 import SwiftUI
 
 @main

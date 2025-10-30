@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "moon-diffuse.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
