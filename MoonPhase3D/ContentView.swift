@@ -11,6 +11,7 @@ import WeatherKit
 import CoreLocation
 import Observation
 import Combine
+import ARKit
 
 struct ContentView: View {
     @State private var moonViewModel = MoonViewModel()
