@@ -14,7 +14,7 @@ import Combine
 @Observable
 @MainActor
 final class MoonViewModel: NSObject, CLLocationManagerDelegate {
-    var moonPhase: MoonPhase = .new
+    var moonPhase: MoonPhase = .waxingGibbous
     var phaseName: String = "Loading..."
     var illumination: Double = 0.0
     var isLoading: Bool = false

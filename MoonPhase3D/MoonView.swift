@@ -34,6 +34,8 @@ struct MoonView: UIViewRepresentable {
         context.coordinator.moonEntity = moonEntity
         context.coordinator.arView = arView
         
+        arView.cameraMode = .nonAR
+        
         return arView
     }
     
@@ -47,31 +49,42 @@ struct MoonView: UIViewRepresentable {
     }
     
     private func createMoon() -> ModelEntity {
-        // Create sphere mesh
-        let moonMesh = MeshResource.generateSphere(radius: 1.0)
-        
-        // Create material with moon texture
-        var moonMaterial = SimpleMaterial()
-        
-        // Load moon texture
-        // Note: You'll need to add a moon texture image to your project
-        // You can download a high-resolution moon map from NASA or other sources
-        if let moonTexture = try? TextureResource.load(named: "moon-diffuse") {
-            moonMaterial.color = .init(tint: .white, texture: .init(moonTexture))
+        // Load the moon model from a .usdz file exported from Reality Composer Pro
+        var moonEntity: ModelEntity
+        if let loadedEntity = try? Entity.loadModel(named: "Moon") {
+            loadedEntity.scale = SIMD3(6.0)
+            moonEntity = loadedEntity
+            moonEntity.position = [0, 0, -0.5]
+        } else if let url = Bundle.main.url(forResource: "Moon", withExtension: "usdz"),
+                  let loadedEntity = try? Entity.loadModel(contentsOf: url) {
+            loadedEntity.scale = SIMD3(0.001, 0.001, 0.001)
+            moonEntity = loadedEntity
         } else {
-            // Fallback to a gray color if texture is not found
-            moonMaterial.color = .init(tint: .lightGray)
+            // Fallback sphere if loading fails
+            let fallbackMesh = MeshResource.generateSphere(radius: 100.0)
+            let fallbackMaterial = SimpleMaterial(color: .gray, isMetallic: false)
+            moonEntity = ModelEntity(mesh: fallbackMesh, materials: [fallbackMaterial])
+            
+            //        // Load moon texture
+            //        // Note: You'll need to add a moon texture image to your project
+            //        // You can download a high-resolution moon map from NASA or other sources
+            //        if let moonTexture = try? TextureResource.load(named: "moon-diffuse_no_alpha ") {
+            //            moonMaterial.color = .init(tint: .clear, texture: .init(moonTexture))
+            //        } else {
+            //            // Fallback to a gray color if texture is not found
+            //            moonMaterial.color = .init(tint: .lightGray)
+            //        }
+            //
+            //        moonMaterial.metallic = 0.0
+            //        moonMaterial.roughness = 1.0
+            
+            // Create the moon entity
+            //        let moonEntity = ModelEntity(mesh: moonMesh, materials: [moonMaterial])
+            
+            // Position the moon
+//            moonEntity.position = [0, 0, 0.0]
+           
         }
-        
-        moonMaterial.metallic = 0.0
-        moonMaterial.roughness = 1.0
-        
-        // Create the moon entity
-        let moonEntity = ModelEntity(mesh: moonMesh, materials: [moonMaterial])
-        
-        // Position the moon
-        moonEntity.position = [0, 0, -0.5]
-        
         return moonEntity
     }
     
@@ -80,7 +93,7 @@ struct MoonView: UIViewRepresentable {
         arView.cameraMode = .nonAR
         
         // Create a perspective camera
-//        let cameraEntity = PerspectiveCameraComponent()
+        let cameraEntity = PerspectiveCameraComponent()
         
         // Set up the camera anchor
         let cameraAnchor = AnchorEntity(world: .zero)
@@ -103,7 +116,7 @@ struct MoonView: UIViewRepresentable {
 //            duration: 30,
 //            timingFunction: .linear
 //        )
-//        
+//
 //
 //        // ERROR: - This method is deprecated and will be removed in future versions
 //        // Make it repeat
@@ -133,9 +146,10 @@ struct MoonView: UIViewRepresentable {
         
         // Create directional light to simulate sun
         let directionalLight = DirectionalLight()
-        directionalLight.light.intensity = 50000
+        directionalLight.light.intensity = 1000
+//        directionalLight.light.intensity = 50000
         directionalLight.light.color = .white
-        directionalLight.light.isRealWorldProxy = false
+        directionalLight.light.isRealWorldProxy = true
         
         // Position light based on moon phase
         let lightX = sin(phaseAngle) * 2
@@ -172,7 +186,8 @@ struct MoonView: UIViewRepresentable {
         case .lastQuarter:
             return 3 * .pi / 2 // Sun to the left
         case .waningCrescent:
-            return 7 * .pi / 4
+            return 3 * .pi / 4
+//            return 7 * .pi / 4
         @unknown default:
             return 0
         }
@@ -183,3 +198,8 @@ struct MoonView: UIViewRepresentable {
         var arView: ARView?
     }
 }
+
+//#Preview {
+//    ContentView()
+//        .preferredColorScheme(.dark)
+//}
