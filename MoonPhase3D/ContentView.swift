@@ -71,6 +71,12 @@ struct ContentView: View {
                 Text("Illumination: \(Int(moonViewModel.illumination * 100))%")
                     .font(.subheadline)
                     .foregroundColor(.gray)
+                
+                if !moonViewModel.coordinates.isEmpty {
+                    Text(moonViewModel.coordinates)
+                        .font(.caption)
+                        .foregroundColor(.gray)
+                }
             }
         }
         .padding()
@@ -86,6 +92,17 @@ struct ContentView: View {
 #if DEBUG
         ScrollView(.horizontal, showsIndicators: false) {
             HStack(spacing: 10) {
+                Button(action: {
+                    moonViewModel.fetchMoonPhase()
+                }) {
+                    Text("Current")
+                        .font(.caption)
+                        .padding(.horizontal, 8)
+                        .padding(.vertical, 4)
+                        .background(Color.green.opacity(0.7))
+                        .foregroundColor(.white)
+                        .cornerRadius(8)
+                }
                 ForEach([
                     MoonPhase.new,
                     .waxingCrescent,

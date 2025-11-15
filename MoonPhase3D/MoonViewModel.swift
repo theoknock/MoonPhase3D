@@ -17,6 +17,7 @@ final class MoonViewModel: NSObject, CLLocationManagerDelegate {
     var moonPhase: MoonPhase = .waxingGibbous
     var phaseName: String = "Loading..."
     var illumination: Double = 0.0
+    var coordinates: String = ""
     var isLoading: Bool = false
     var errorMessage: String?
     
@@ -32,8 +33,12 @@ final class MoonViewModel: NSObject, CLLocationManagerDelegate {
         // Request location permission
         locationManager.requestWhenInUseAuthorization()
         
-        // Use a default location (you can replace with actual location)
-        let location = CLLocation(latitude: 37.7749, longitude: -122.4194) // San Francisco
+        guard let location = locationManager.location else {
+            errorMessage = "Unable to get current location."
+            return
+        }
+        
+        self.coordinates = "\(location.coordinate.latitude), \(location.coordinate.longitude)"
         
         Task {
             await fetchWeatherData(for: location)
@@ -182,6 +187,7 @@ final class MoonViewModel: NSObject, CLLocationManagerDelegate {
         case .authorizedWhenInUse, .authorizedAlways:
             // Permission granted, fetch with current location
             if let location = manager.location {
+                self.coordinates = "\(location.coordinate.latitude), \(location.coordinate.longitude)"
                 Task {
                     await fetchWeatherData(for: location)
                 }
@@ -190,6 +196,7 @@ final class MoonViewModel: NSObject, CLLocationManagerDelegate {
             errorMessage = "Location access denied. Using default location."
             // Use default location
             let defaultLocation = CLLocation(latitude: 37.7749, longitude: -122.4194)
+            self.coordinates = "\(defaultLocation.coordinate.latitude), \(defaultLocation.coordinate.longitude)"
             Task {
                 await fetchWeatherData(for: defaultLocation)
             }
