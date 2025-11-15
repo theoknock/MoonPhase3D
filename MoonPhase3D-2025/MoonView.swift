@@ -101,12 +101,13 @@ struct MoonView: UIViewRepresentable {
         // Calculate light position - the sun moves around the moon
         // For new moon, sun is behind the moon (from viewer's perspective)
         // For full moon, sun is behind the viewer
-        let lightDistance: Float = 3.0
+        let lightDistance: Float = 2.0
         let lightX = sin(phaseAngleRadians) * lightDistance
         let lightZ = cos(phaseAngleRadians) * lightDistance
         
         // Create directional light to simulate sun
         let directionalLight = DirectionalLight()
+        directionalLight.light.isRealWorldProxy = true
         directionalLight.light.intensity = 2000
         directionalLight.light.color = .white
         directionalLight.position = [lightX, 0, lightZ]
@@ -116,12 +117,11 @@ struct MoonView: UIViewRepresentable {
         lightAnchor.addChild(directionalLight)
         
         // Add subtle ambient light for visibility of dark side
-        let ambientLight = PointLight()
-        ambientLight.light.intensity = 100
-        ambientLight.light.color = .init(red: 0.1, green: 0.1, blue: 0.15, alpha: 1.0)
-        ambientLight.light.attenuationRadius = 10
-        ambientLight.position = [0, 0, 2]
-        lightAnchor.addChild(ambientLight)
+        let ambientLight = PointLightComponent.init(cgColor: CGColor.init(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0), intensity: 100.0, attenuationRadius: 10.0)
+        let ambientLightEntity = Entity()
+        ambientLightEntity.components.set(ambientLight)
+        ambientLightEntity.position = [0, 0, 2]
+        lightAnchor.addChild(ambientLightEntity)
     }
     
     // Convert illumination fraction (0-1) to phase angle in degrees
@@ -190,6 +190,27 @@ struct MoonView: UIViewRepresentable {
             return 0
         }
     }
+    
+//    private func addRotationAnimation(to entity: ModelEntity) {
+//        // Create a slow rotation animation
+//        let rotationAnimation = entity.move(
+//            to: Transform(
+//                scale: entity.scale,
+//                rotation: simd_quatf(angle: .pi * 2, axis: [0, 1, 0]),
+//                translation: entity.position
+//            ),
+//            relativeTo: entity.parent,
+//            duration: 30,
+//            timingFunction: .linear
+//        )
+//
+//
+//        // ERROR: - This method is deprecated and will be removed in future versions
+//        // Make it repeat
+//        if rotationAnimation != nil {
+//            entity.playAnimation(rotationAnimation.entity.)
+//        }
+//    }
     
     class Coordinator {
         var moonEntity: ModelEntity?
