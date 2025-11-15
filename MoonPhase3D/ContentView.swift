@@ -29,22 +29,6 @@ struct ContentView: View {
         }
         .ignoresSafeArea()
         
-        //            VStack {
-        // 3D Moon View
-        //                MoonView(moonPhase: moonViewModel.moonPhase)
-        //                    .frame(height: 400)
-        //                    .padding()
-        //                GeometryReader { geo in
-        //            MoonView(moonPhase: moonViewModel.moonPhase)
-        //                        .frame(
-        //                            maxWidth: .infinity,
-        //                            maxHeight: .infinity
-        //                        )
-        //                        .ignoresSafeArea()
-        //                }
-        // Prevent the GeometryReader from collapsing vertically:
-        //                .scaledToFill()
-        
         // Moon Phase Information
         VStack(spacing: 10) {
             Text("Current Moon Phase")
@@ -72,8 +56,9 @@ struct ContentView: View {
                     .font(.subheadline)
                     .foregroundColor(.gray)
                 
-                if !moonViewModel.coordinates.isEmpty {
-                    Text(moonViewModel.coordinates)
+                // Check if coordinates are valid and display them
+                if CLLocationCoordinate2DIsValid(moonViewModel.coordinates) {
+                    Text(moonViewModel.formattedCoordinates())
                         .font(.caption)
                         .foregroundColor(.gray)
                 }
@@ -131,6 +116,7 @@ struct ContentView: View {
 #endif
     }
 }
+
 #if DEBUG
 private func phaseName(for phase: MoonPhase) -> String {
     switch phase {

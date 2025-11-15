@@ -17,7 +17,7 @@ final class MoonViewModel: NSObject, CLLocationManagerDelegate {
     var moonPhase: MoonPhase = .waxingGibbous
     var phaseName: String = "Loading..."
     var illumination: Double = 0.0
-    var coordinates: String = ""
+    var coordinates: CLLocationCoordinate2D = CLLocationCoordinate2D()  // Changed to CLLocationCoordinate2D
     var isLoading: Bool = false
     var errorMessage: String?
     
@@ -38,11 +38,31 @@ final class MoonViewModel: NSObject, CLLocationManagerDelegate {
             return
         }
         
-        self.coordinates = "\(location.coordinate.latitude), \(location.coordinate.longitude)"
+        self.coordinates = location.coordinate  // Store the actual coordinate
         
         Task {
             await fetchWeatherData(for: location)
         }
+    }
+    
+    // Format coordinates for display
+    func formattedCoordinates() -> String {
+        guard CLLocationCoordinate2DIsValid(coordinates) else {
+            return ""
+        }
+        
+        let latitude = coordinates.latitude
+        let longitude = coordinates.longitude
+        
+        // Format as degrees with cardinal directions
+        let latDirection = latitude >= 0 ? "N" : "S"
+        let lonDirection = longitude >= 0 ? "E" : "W"
+        
+        // Use absolute values and format to 4 decimal places
+        let latFormatted = String(format: "%.4f°%@", abs(latitude), latDirection)
+        let lonFormatted = String(format: "%.4f°%@", abs(longitude), lonDirection)
+        
+        return "\(latFormatted), \(lonFormatted)"
     }
     
     @MainActor
@@ -187,16 +207,16 @@ final class MoonViewModel: NSObject, CLLocationManagerDelegate {
         case .authorizedWhenInUse, .authorizedAlways:
             // Permission granted, fetch with current location
             if let location = manager.location {
-                self.coordinates = "\(location.coordinate.latitude), \(location.coordinate.longitude)"
+                self.coordinates = location.coordinate
                 Task {
                     await fetchWeatherData(for: location)
                 }
             }
         case .denied, .restricted:
             errorMessage = "Location access denied. Using default location."
-            // Use default location
+            // Use default location (San Francisco)
             let defaultLocation = CLLocation(latitude: 37.7749, longitude: -122.4194)
-            self.coordinates = "\(defaultLocation.coordinate.latitude), \(defaultLocation.coordinate.longitude)"
+            self.coordinates = defaultLocation.coordinate
             Task {
                 await fetchWeatherData(for: defaultLocation)
             }
