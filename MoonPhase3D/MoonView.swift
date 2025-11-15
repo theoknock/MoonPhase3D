@@ -144,29 +144,38 @@ struct MoonView: UIViewRepresentable {
         // Calculate light position based on moon phase
         let phaseAngle = getMoonPhaseAngle(moonPhase)
         
+        // Create ambient light
+        let ambientLight = PointLight()
+        ambientLight.light.intensity = 500
+        ambientLight.light.color = .init(red: 1.0, green: 1.0, blue: 0.0, alpha: 1.0)
+        ambientLight.light.attenuationFalloffExponent = 1.0
+        ambientLight.light.attenuationRadius = 500
+        let ambientX = sin(phaseAngle)
+        let ambientZ = cos(phaseAngle)
+        ambientLight.position = [ambientX, 0, ambientZ]
+        
         // Create directional light to simulate sun
         let directionalLight = DirectionalLight()
         directionalLight.light.intensity = 1000
-//        directionalLight.light.intensity = 50000
         directionalLight.light.color = .white
         directionalLight.light.isRealWorldProxy = true
-        
-        // Position light based on moon phase
         let lightX = sin(phaseAngle) * 2
         let lightZ = cos(phaseAngle) * 2
         directionalLight.position = [lightX, 0, lightZ]
         
         // Make light look at the moon
+        ambientLight.look(at: moonEntity.position, from: ambientLight.position, relativeTo: nil)
+        lightAnchor.addChild(ambientLight)
         directionalLight.look(at: moonEntity.position, from: directionalLight.position, relativeTo: nil)
-        
         lightAnchor.addChild(directionalLight)
         
+        
         // Add ambient light for visibility
-        let ambientLight = PointLight()
-        ambientLight.light.intensity = 500
-        ambientLight.light.color = .init(red: 0.1, green: 0.1, blue: 0.2, alpha: 1.0)
-        ambientLight.position = [0, 0, 1]
-        lightAnchor.addChild(ambientLight)
+//        let ambientLight = PointLight()
+//        ambientLight.light.intensity = 500
+//        ambientLight.light.color = .init(red: 0.1, green: 0.1, blue: 0.2, alpha: 1.0)
+//        ambientLight.position = [0, 0, 1]
+//        lightAnchor.addChild(ambientLight)
     }
     
     private func getMoonPhaseAngle(_ phase: MoonPhase) -> Float {
