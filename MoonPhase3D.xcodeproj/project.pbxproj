@@ -7,61 +7,33 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B97F130C2EB4158100488D8B /* WeatherKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B97F130B2EB4158000488D8B /* WeatherKit.framework */; };
-		B97F130E2EB4159300488D8B /* RealityKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B97F130D2EB4159300488D8B /* RealityKit.framework */; };
 		B99901E82EC8A539000EA3BD /* ARKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9A116482EC86ABD00A1BFD6 /* ARKit.framework */; };
 		B99901E92EC8A541000EA3BD /* WeatherKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B97F130B2EB4158000488D8B /* WeatherKit.framework */; };
 		B99901EA2EC8A551000EA3BD /* RealityKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B97F130D2EB4159300488D8B /* RealityKit.framework */; };
-		B9A116492EC86ABD00A1BFD6 /* ARKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9A116482EC86ABD00A1BFD6 /* ARKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		B97F12F92EB40A8700488D8B /* MoonPhase3D.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoonPhase3D.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B97F130B2EB4158000488D8B /* WeatherKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WeatherKit.framework; path = System/Library/Frameworks/WeatherKit.framework; sourceTree = SDKROOT; };
 		B97F130D2EB4159300488D8B /* RealityKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealityKit.framework; path = System/Library/Frameworks/RealityKit.framework; sourceTree = SDKROOT; };
 		B99901D12EC8A2FB000EA3BD /* MoonPhase3D-2025.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MoonPhase3D-2025.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9A116482EC86ABD00A1BFD6 /* ARKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ARKit.framework; path = System/Library/Frameworks/ARKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
-/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		B99901F12EC8A8BB000EA3BD /* Exceptions for "MoonPhase3D" folder in "MoonPhase3D" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+/* Begin PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet section */
+		B999020F2EC8B443000EA3BD /* Exceptions for "MoonPhase3D-2025" folder in "Compile Sources" phase from "MoonPhase3D-2025" target */ = {
+			isa = PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet;
+			buildPhase = B99901CD2EC8A2FB000EA3BD /* Sources */;
 			membershipExceptions = (
-				MoonViewSized.swift,
+				"MoonPhase3D-2025.entitlements",
 			);
-			target = B97F12F82EB40A8700488D8B /* MoonPhase3D */;
 		};
-		B999020A2EC8B17A000EA3BD /* Exceptions for "MoonPhase3D-2025" folder in "MoonPhase3D-2025" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				Info.plist,
-				Moon.usdz,
-			);
-			target = B99901D02EC8A2FB000EA3BD /* MoonPhase3D-2025 */;
-		};
-		B999020C2EC8B182000EA3BD /* Exceptions for "MoonPhase3D" folder in "MoonPhase3D-2025" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				Moon.usdz,
-			);
-			target = B99901D02EC8A2FB000EA3BD /* MoonPhase3D-2025 */;
-		};
-/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+/* End PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		B97F12FB2EB40A8700488D8B /* MoonPhase3D */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				B99901F12EC8A8BB000EA3BD /* Exceptions for "MoonPhase3D" folder in "MoonPhase3D" target */,
-				B999020C2EC8B182000EA3BD /* Exceptions for "MoonPhase3D" folder in "MoonPhase3D-2025" target */,
-			);
-			path = MoonPhase3D;
-			sourceTree = "<group>";
-		};
 		B99901D22EC8A2FB000EA3BD /* MoonPhase3D-2025 */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
-				B999020A2EC8B17A000EA3BD /* Exceptions for "MoonPhase3D-2025" folder in "MoonPhase3D-2025" target */,
+				B999020F2EC8B443000EA3BD /* Exceptions for "MoonPhase3D-2025" folder in "Compile Sources" phase from "MoonPhase3D-2025" target */,
 			);
 			path = "MoonPhase3D-2025";
 			sourceTree = "<group>";
@@ -69,16 +41,6 @@
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		B97F12F62EB40A8700488D8B /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				B9A116492EC86ABD00A1BFD6 /* ARKit.framework in Frameworks */,
-				B97F130E2EB4159300488D8B /* RealityKit.framework in Frameworks */,
-				B97F130C2EB4158100488D8B /* WeatherKit.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		B99901CE2EC8A2FB000EA3BD /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -95,7 +57,6 @@
 		B97F12F02EB40A8700488D8B = {
 			isa = PBXGroup;
 			children = (
-				B97F12FB2EB40A8700488D8B /* MoonPhase3D */,
 				B99901D22EC8A2FB000EA3BD /* MoonPhase3D-2025 */,
 				B97F130A2EB4158000488D8B /* Frameworks */,
 				B97F12FA2EB40A8700488D8B /* Products */,
@@ -105,7 +66,6 @@
 		B97F12FA2EB40A8700488D8B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				B97F12F92EB40A8700488D8B /* MoonPhase3D.app */,
 				B99901D12EC8A2FB000EA3BD /* MoonPhase3D-2025.app */,
 			);
 			name = Products;
@@ -124,28 +84,6 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		B97F12F82EB40A8700488D8B /* MoonPhase3D */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = B97F13042EB40A8800488D8B /* Build configuration list for PBXNativeTarget "MoonPhase3D" */;
-			buildPhases = (
-				B97F12F52EB40A8700488D8B /* Sources */,
-				B97F12F62EB40A8700488D8B /* Frameworks */,
-				B97F12F72EB40A8700488D8B /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			fileSystemSynchronizedGroups = (
-				B97F12FB2EB40A8700488D8B /* MoonPhase3D */,
-			);
-			name = MoonPhase3D;
-			packageProductDependencies = (
-			);
-			productName = MoonPhase3D;
-			productReference = B97F12F92EB40A8700488D8B /* MoonPhase3D.app */;
-			productType = "com.apple.product-type.application";
-		};
 		B99901D02EC8A2FB000EA3BD /* MoonPhase3D-2025 */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = B99901D92EC8A2FC000EA3BD /* Build configuration list for PBXNativeTarget "MoonPhase3D-2025" */;
@@ -178,9 +116,6 @@
 				LastSwiftUpdateCheck = 2620;
 				LastUpgradeCheck = 2620;
 				TargetAttributes = {
-					B97F12F82EB40A8700488D8B = {
-						CreatedOnToolsVersion = 26.1;
-					};
 					B99901D02EC8A2FB000EA3BD = {
 						CreatedOnToolsVersion = 26.2;
 					};
@@ -200,20 +135,12 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				B97F12F82EB40A8700488D8B /* MoonPhase3D */,
 				B99901D02EC8A2FB000EA3BD /* MoonPhase3D-2025 */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		B97F12F72EB40A8700488D8B /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		B99901CF2EC8A2FB000EA3BD /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -224,13 +151,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		B97F12F52EB40A8700488D8B /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		B99901CD2EC8A2FB000EA3BD /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -364,84 +284,6 @@
 			};
 			name = Release;
 		};
-		B97F13052EB40A8800488D8B /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
-				CODE_SIGN_ENTITLEMENTS = MoonPhase3D/MoonPhase3D.entitlements;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = N9987K9442;
-				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Location (Always) Usage Description";
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Location (When In Use) Usage Description";
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
-				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.blogspot.demonicactivity.MoonPhase3DApp;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				STRING_CATALOG_GENERATE_SYMBOLS = YES;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
-				SUPPORTS_MACCATALYST = NO;
-				SWIFT_APPROACHABLE_CONCURRENCY = YES;
-				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		B97F13062EB40A8800488D8B /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
-				CODE_SIGN_ENTITLEMENTS = MoonPhase3D/MoonPhase3D.entitlements;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = N9987K9442;
-				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Location (Always) Usage Description";
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Location (When In Use) Usage Description";
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
-				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.blogspot.demonicactivity.MoonPhase3DApp;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				STRING_CATALOG_GENERATE_SYMBOLS = YES;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
-				SUPPORTS_MACCATALYST = NO;
-				SWIFT_APPROACHABLE_CONCURRENCY = YES;
-				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
 		B99901DA2EC8A2FC000EA3BD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -455,7 +297,7 @@
 				DEVELOPMENT_TEAM = N9987K9442;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "MoonPhase3D-2025/Info.plist";
+//				INFOPLIST_FILE = "MoonPhase3D-2025/Info.plist";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = Always;
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = Always;
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "When In Use";
@@ -497,7 +339,7 @@
 				DEVELOPMENT_TEAM = N9987K9442;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "MoonPhase3D-2025/Info.plist";
+//				INFOPLIST_FILE = "MoonPhase3D-2025/Info.plist";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = Always;
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = Always;
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "When In Use";
@@ -534,15 +376,6 @@
 			buildConfigurations = (
 				B97F13022EB40A8800488D8B /* Debug */,
 				B97F13032EB40A8800488D8B /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		B97F13042EB40A8800488D8B /* Build configuration list for PBXNativeTarget "MoonPhase3D" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				B97F13052EB40A8800488D8B /* Debug */,
-				B97F13062EB40A8800488D8B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
