@@ -133,3 +133,6 @@ Consider adding:
 ## License
 
 This is a sample educational project. Moon texture images may have their own licensing requirements depending on the source.
+
+<img width="489" height="1000" alt="Screenshot_alpha" src="https://github.com/user-attachments/assets/5fdefa70-ab5c-4de5-85a2-720836d9c315" />
+
